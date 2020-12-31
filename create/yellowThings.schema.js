@@ -2,7 +2,7 @@
 
 const dynamoose = require('dynamoose');
 
-const yellowThingsSchema = new dynamoose.yellowThingsSchema({
+const yellowThingsSchema = new dynamoose.Schema({
   "id": String,
   "item": String,
   "shade": {
