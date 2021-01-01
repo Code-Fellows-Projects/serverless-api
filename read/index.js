@@ -4,16 +4,16 @@
 const yellowThingsModel = require('./yellowThings.schema');
 
 exports.handler = async (event) => {
-  const yellowId = event.pathParameters.id;
-  console.log('__YELLOWID__', yellowId);
+  const id = event.pathParameters.id;
+  console.log('__id__', id);
 
   try {
 
     let data;
     // check to see if there is an id
     // query the DB to find the record with the id and return it
-    if (yellowId) {
-      const list = await yellowThingsModel.query('id').eq(yellowId).limit(1).exec();
+    if (id) {
+      const list = await yellowThingsModel.query('id').eq(id).limit(1).exec();
       data = list;
     } else {
       // if not
@@ -31,3 +31,7 @@ exports.handler = async (event) => {
     }
   }
 };
+
+// GET
+// /people - returns an array of objects representing the records in the database
+// /people/## - returns an object representing one record, by its id (##)
